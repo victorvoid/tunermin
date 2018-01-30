@@ -10,7 +10,7 @@
   "Guitar strings are E2=82.41Hz `https://www.seventhstring.com/resources/notefrequencies.html`"
   82.41)
 
-(.log js/console (tuner/get-note-frequencies E2 notes))
+(.log js/console (tuner/get-note-frequencies E2 notes 20))
 
 (defn tunermin-app []
   [:div
