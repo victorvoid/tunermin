@@ -1,10 +1,16 @@
 (ns tunermin.core
-    (:require [reagent.core :as reagent :refer [atom]]))
+  (:require [reagent.core :as reagent :refer [atom]]
+            [tunermin.tuner :as tuner]))
 
 (enable-console-print!)
-;; define your app data so that it doesn't get over-written on reload
 
 (defonce app-state (atom {:text "Tunermin"}))
+(def notes ["C" "C#" "D" "D#" "E" "F" "F#" "G" "G#" "A" "A#" "B"])
+(def E2
+  "Guitar strings are E2=82.41Hz `https://www.seventhstring.com/resources/notefrequencies.html`"
+  82.41)
+
+(.log js/console (tuner/get-note-frequencies E2 notes))
 
 (defn tunermin-app []
   [:div
