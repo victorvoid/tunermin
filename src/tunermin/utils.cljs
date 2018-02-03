@@ -1,4 +1,5 @@
 (ns tunermin.utils)
 
-(defn exp [x n]
-  (reduce * (repeat n x)))
+(defn exp
+  [x y]
+  (.pow js/Math x y))
