@@ -1,16 +1,13 @@
 (ns tunermin.core
   (:require [reagent.core :as reagent :refer [atom]]
-            [tunermin.tuner :as tuner]))
+            [tunermin.tuner :as tuner]
+            [tunermin.strings :as string]))
 
 (enable-console-print!)
 
 (defonce app-state (atom {:text "Tunermin"}))
-(def notes ["C" "C#" "D" "D#" "E" "F" "F#" "G" "G#" "A" "A#" "B"])
-(def E2
-  "Guitar strings are E2=82.41Hz `https://www.seventhstring.com/resources/notefrequencies.html`"
-  82.41)
 
-(.log js/console (tuner/get-note-frequencies E2 notes 20))
+(.log js/console (tuner/get-note-frequencies (:e2 string/strings) string/notes 20))
 
 (defn tunermin-app []
   [:div
